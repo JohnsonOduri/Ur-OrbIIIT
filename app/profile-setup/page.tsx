@@ -15,7 +15,7 @@ export default function Page() {
 
   return (
     <ProfileSetup
-      onRegister={() => router.push('/dashboard')}
+      onRegister={() => router.push('/')}
       onSwitchToLogin={() => router.push('/login')}
       isDarkMode={false}
       toggleDarkMode={() => {}}

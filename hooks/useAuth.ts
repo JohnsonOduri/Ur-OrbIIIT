@@ -78,7 +78,7 @@ export function useAuth() {
 
         setError(null);
         setLoading(false);
-        router.replace("/dashboard");
+        router.replace("/");
       } catch (dbErr: any) {
         console.error("Firestore check failed", dbErr);
         setError("Login succeeded but we couldn't verify your profile. Please try again later.");

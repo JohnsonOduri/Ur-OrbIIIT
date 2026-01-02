@@ -8,8 +8,6 @@ A production-grade campus digital platform for secure academic workflows and rea
 **OrbIIIT** is a campus-focused web application designed to digitize and automate critical student and administrative workflows.  
 The platform emphasizes **security-first design**, **serverless compatibility**, and **real-world institutional usability**.
 
-This repository submission highlights **two major features developed after December 1st** for the **TechSprint Hackathon**.
-
 ---
 
 ## 1. Student Leave Form – Secure PDF Generation & Download
