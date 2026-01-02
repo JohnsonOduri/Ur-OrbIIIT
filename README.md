@@ -12,10 +12,6 @@ This repository submission highlights **two major features developed after Decem
 
 ---
 
-## 🚀 Hackathon Submission Features
-
----
-
 ## 1. Student Leave Form – Secure PDF Generation & Download
 
 ### Overview
