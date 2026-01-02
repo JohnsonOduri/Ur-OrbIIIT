@@ -9,8 +9,6 @@ export const usersCollection = collection(db, "users");
 const leaveRequestsCollection = collection(db, "leave_requests");
 export const FACULTY_APPROVER_EMAIL = "odurijohnson24bcs66@iiitkottayam.ac.in";
 export const WARDEN_APPROVER_EMAIL = "machaananya24bcd27@iiitkottayam.ac.in";
-export const FACULTY_APPROVER_UID = "odurijohnson-faculty";
-export const WARDEN_APPROVER_UID = "machaananya-warden";
 
 const normalizeEmail = (email: string | null | undefined) => (email || "").trim().toLowerCase();
 
@@ -68,8 +66,8 @@ export async function createLeaveRequestRecord(input: {
 
   status: "pending_faculty",
   // default approval state objects
-  faculty: { status: 'pending', comments: '', actedAt: null, name: null, email: FACULTY_APPROVER_EMAIL, uid: FACULTY_APPROVER_UID },
-  warden: { status: 'pending', comments: '', actedAt: null, name: null, email: WARDEN_APPROVER_EMAIL, uid: WARDEN_APPROVER_UID },
+  faculty: { status: 'pending', comments: '', actedAt: null, name: null, email: FACULTY_APPROVER_EMAIL },
+  warden: { status: 'pending', comments: '', actedAt: null, name: null, email: WARDEN_APPROVER_EMAIL },
   rejectionReason: '',
   // store the creating user's uid for secure queries
   studentUid: auth.currentUser ? auth.currentUser.uid : null,
@@ -410,24 +408,11 @@ export async function setUserFcmToken(uid: string, token: string) {
   const snap = await getDocs(q);
   if (!snap.empty) {
     const d = snap.docs[0];
-    await setDoc(
-      doc(db, 'user_meta', d.id),
-      {
-        fcmToken: token,
-        notificationsEnabled: true,
-        updatedAt: serverTimestamp(),
-      },
-      { merge: true }
-    );
+    await setDoc(doc(db, 'user_meta', d.id), { fcmToken: token }, { merge: true });
     const updated = await getDoc(doc(db, 'user_meta', d.id));
     return { id: updated.id, ...(updated.data() as Record<string, any>) };
   } else {
-    const ref = await addDoc(userMetaCollection, {
-      owner: uid,
-      fcmToken: token,
-      notificationsEnabled: true,
-      updatedAt: serverTimestamp(),
-    });
+    const ref = await addDoc(userMetaCollection, { owner: uid, fcmToken: token });
     const created = await getDoc(doc(db, 'user_meta', ref.id));
     return { id: created.id, ...(created.data() as Record<string, any>) };
   }

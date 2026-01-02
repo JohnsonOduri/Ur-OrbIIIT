@@ -19,9 +19,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <h1 className="text-lg font-semibold">OrbIIIT</h1>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Link href="/notifications">
-                    <Bell className="h-5 w-5" />
-                  </Link>
                   <Link href="/menu">
                     <Menu className="h-5 w-5" />
                   </Link>
@@ -29,26 +26,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </header>
             <main className="pb-20 max-w-md mx-auto">{children}</main>
-            <nav className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-card border-t border-border">
-              <div className="flex items-center justify-around py-2">
-                <Link href="/dashboard" className="flex flex-col items-center py-2 px-3">
-                  <Home className="h-4 w-4 mb-1" />
-                  <span className="text-xs">HOME</span>
-                </Link>
-                <Link href="/plan" className="flex flex-col items-center py-2 px-3">
-                  <Calendar className="h-4 w-4 mb-1" />
-                  <span className="text-xs">PLAN</span>
-                </Link>
-                <Link href="/track" className="flex flex-col items-center py-2 px-3">
-                  <Target className="h-4 w-4 mb-1" />
-                  <span className="text-xs">TRACK</span>
-                </Link>
-                <Link href="/profile" className="flex flex-col items-center py-2 px-3">
-                  <User className="h-4 w-4 mb-1" />
-                  <span className="text-xs">YOU</span>
-                </Link>
-              </div>
-            </nav>
           </AuthProvider>
       </body>
     </html>

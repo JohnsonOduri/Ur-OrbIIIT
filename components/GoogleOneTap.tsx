@@ -14,10 +14,13 @@ declare global {
   }
 }
 
-type GoogleMomentType = "display" | "skipped" | "dismissed";
-
 type GooglePromptNotification = {
-  getMomentType?: () => GoogleMomentType | undefined;
+  isNotDisplayed: () => boolean;
+  getNotDisplayedReason?: () => string;
+  isSkippedMoment: () => boolean;
+  getSkippedReason?: () => string;
+  isDismissedMoment: () => boolean;
+  getDismissedReason?: () => string;
 };
 
 import { useEffect, useRef, useCallback } from "react";
@@ -58,25 +61,19 @@ export default function GoogleOneTap({ clientId }: GoogleOneTapProps) {
         window.google!.accounts.id.prompt((notification?: GooglePromptNotification) => {
           promptInProgress.current = false;
           if (!notification) return;
-
-          const momentType = notification.getMomentType?.();
-          switch (momentType) {
-            case "display":
-              console.log("[One Tap] Prompt shown");
-              prompted.current = true;
-              break;
-            case "skipped":
-              console.log("[One Tap] Prompt skipped");
-              prompted.current = false;
-              break;
-            case "dismissed":
-              console.log("[One Tap] Prompt dismissed");
-              prompted.current = false;
-              break;
-            default:
-              console.log("[One Tap] Moment status unavailable");
-              prompted.current = false;
-              break;
+          if (notification.isNotDisplayed()) {
+            console.log("[One Tap] Not displayed:", notification.getNotDisplayedReason?.());
+            // allow a future retry
+            prompted.current = false;
+          } else if (notification.isSkippedMoment()) {
+            console.log("[One Tap] Skipped:", notification.getSkippedReason?.());
+            prompted.current = false;
+          } else if (notification.isDismissedMoment()) {
+            console.log("[One Tap] Dismissed:", notification.getDismissedReason?.());
+            prompted.current = false;
+          } else {
+            console.log("[One Tap] Prompt shown");
+            prompted.current = true;
           }
         });
       } catch (err: unknown) {

@@ -35,9 +35,6 @@ export default function LoginPage({ isDarkMode, toggleDarkMode }: LoginPageProps
       {/* Branding */}
         <div className="text-center mb-10">
     <h1 className="text-4xl font-bold mb-2">Welcome to ORBIIIT</h1>
-    <p className="text-muted-foreground">
-      Allow notifications to recieve updates regarding ur dealines, communitites and events.
-    </p>
     <p className="text-sm text-muted-foreground mt-1">
       Only valid <span className="font-mono">@iiitkottayam.ac.in</span> emails are accepted.
     </p>
