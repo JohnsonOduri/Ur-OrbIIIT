@@ -1,0 +1,124 @@
+[
+  {
+    "course_code": "FA",
+    "course_name": "Interaction with Faculty Advisor",
+    "major": [
+      "BCS",
+      "BCD",
+      "BCY",
+      "BEC"
+    ]
+  },
+  {
+    "course_code": "IMA211",
+    "course_name": "Probability, Statistics, and Random Processes",
+    "major": [
+      "BCS",
+      "BCD",
+      "BCY",
+      "BEC"
+    ]
+  },
+  {
+    "course_code": "ICS211",
+    "course_name": "Design and Analysis of Algorithms",
+    "major": [
+      "BCS",
+      "BCD",
+      "BCY"
+    ]
+  },
+  {
+    "course_code": "ICS212",
+    "course_name": "Theory of Computation",
+    "major": [
+      "BCS",
+      "BCD",
+      "BCY"
+    ]
+  },
+  {
+    "course_code": "ICS213",
+    "course_name": "Database Management Systems",
+    "major": [
+      "BCS",
+      "BCD",
+      "BCY"
+    ]
+  },
+  {
+    "course_code": "ICS214",
+    "course_name": "IT Workshop III",
+    "major": [
+      "BCS",
+      "BCD",
+      "BCY"
+    ]
+  },
+  {
+    "course_code": "ISC211",
+    "course_name": "Introduction to Bioinformatics",
+    "major": [
+      "BCS"
+    ]
+  },
+  {
+    "course_code": "ICS215",
+    "course_name": "Data Structures II",
+    "major": [
+      "BCS",
+      "BCD",
+      "BCY",
+      "BEC"
+    ]
+  },
+  {
+    "course_code": "IEC211",
+    "course_name": "Solid State Devices",
+    "major": [
+      "BEC"
+    ]
+  },
+  {
+    "course_code": "IEC212",
+    "course_name": "Analog Electronics",
+    "major": [
+      "BEC"
+    ]
+  },
+  {
+    "course_code": "IEC213",
+    "course_name": "Microprocessors and Microcontrollers",
+    "major": [
+      "BEC"
+    ]
+  },
+  {
+    "course_code": "IEC214",
+    "course_name": "Principles of Communication",
+    "major": [
+      "BEC"
+    ]
+  },
+  {
+    "course_code": "IEC215",
+    "course_name": "Linear Integrated Circuits",
+    "major": [
+      "BEC"
+    ]
+  },
+  {
+    "course_code": "ISC212",
+    "course_name": "Quantum Computing and Security",
+    "major": [
+      "BCY"
+    ]
+  },
+  {
+    "course_code": "ISC213",
+    "course_name": "Introduction to Cognitive Science",
+    "major": [
+      "BCD"
+    ]
+  }
+]

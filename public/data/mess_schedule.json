@@ -1,0 +1,334 @@
+[
+  {
+    "DAY": "MONDAY",
+    "BREAKFAST (7:00 AM - 9:45 AM)": [
+      "Vada Pav",
+      "Puttu",
+      "Channa Curry",
+      "Fried Chillies",
+      "Onions",
+      "Green Chutney",
+      "Red Powdered Chutney",
+      "Bread (Normal/Brown)",
+      "Jam",
+      "Butter",
+      "Tea",
+      "Milk",
+      "Banana."
+    ],
+    "LUNCH (11:45 AM - 2:30 PM)": [
+      "Jeera Rice",
+      "White Rice",
+      "Roti",
+      "Potato Curry",
+      "Mulaku Kondattam",
+      "Rajma Curry",
+      "Fryums",
+      "Pulissery",
+      "Curd",
+      "Salad",
+      "Fruit: Seasonal Fruit"
+    ],
+    "SNACKS (4:00 PM - 6:00 PM)": [
+      "Bhelpuri ",
+      "Bread",
+      "Jam",
+      "Butter",
+      "Tea",
+      "Milk"
+    ],
+    "DINNER (7:00 PM - 9:00 PM)": [
+      "Rice",
+      "Roti",
+      "Soya Chunk Curry (Small)",
+      "Beetroot Dry",
+      "Palak Dal Tadka",
+      "Cabbage Chutney",
+      "Pepper Rasam",
+      "Chips",
+      "Curd",
+      "Salad",
+      "Sweet: Ada Payasam"
+    ]
+  },
+  {
+    "DAY": "TUESDAY",
+    "BREAKFAST (7:00 AM - 9:45 AM)": [
+      "Idli",
+      "Masala Idli",
+      "Punugulu",
+      "Sambar",
+      "Groundnut Chutney",
+      "Tomato Chutney",
+      "Bread (Normal/Brown)",
+      "Jam",
+      "Butter",
+      "Coffee",
+      "Milk"
+    ],
+    "LUNCH (11:45 AM - 2:30 PM)": [
+      "Rice",
+      "Roti",
+      "Chole Curry",
+      "Onion Dal Tadka",
+      "Ivy gourd Chutney",
+      "Cabbage Carrot Thoran",
+      "Curd",
+      "Salad",
+      "Fryums",
+      "Drink: Sweet Lassi"
+    ],
+    "SNACKS (4:00 PM - 6:00 PM)": [
+      "Masala Puri chaat",
+      "Bread",
+      "Jam",
+      "Butter",
+      "Tea",
+      "Milk"
+    ],
+    "DINNER (7:00 PM - 9:00 PM)": [
+      "Rice",
+      "Roti",
+      "Egg Curry",
+      "Dal Tadka",
+      "Vanpayar Aloo Curry",
+      "Tomato Rasam",
+      "Curd",
+      "Papad",
+      "Salad",
+      "Drink: Grape Drink"
+    ]
+  },
+  {
+    "DAY": "WEDNESDAY",
+    "BREAKFAST (7:00 AM - 9:45 AM)": [
+      "Masala Uthappam",
+      "Medu Vada",
+      "Sambar",
+      "Coconut Chutney",
+      "Bread (Normal/Brown)",
+      "Jam",
+      "Butter",
+      "Coffee",
+      "Milk",
+      "Banana"
+    ],
+    "LUNCH (11:45 AM - 2:30 PM)": [
+      "Rice",
+      "Roti",
+      "Palak Dal tadka",
+      "Crunchy Bhindi Fry",
+      "Rasam",
+      "Papad",
+      "Curd",
+      "Salad",
+      "Banana",
+      "Drink: Buttermilk"
+    ],
+    "SNACKS (4:00 PM - 6:00 PM)": [
+      "Peanuts chaat",
+      "Bread",
+      "Jam",
+      "Butter",
+      "Tea",
+      "Milk"
+    ],
+    "DINNER (7:00 PM - 9:00 PM)": [
+      "Fried Rice",
+      "Roti",
+      "Kadai Paneer",
+      "Chilli Chicken",
+      "Onion Chilli Raita",
+      "Drink: Passion Fruit Drink"
+    ]
+  },
+  {
+    "DAY": "THURSDAY",
+    "BREAKFAST (7:00 AM - 9:45 AM)": [
+      "Pav Bhaji",
+      "Lemons",
+      "Onions",
+      "Uggani(Puffed Rice)",
+      "Roasted Chana Podi",
+      "Bread (Normal/Brown)",
+      "Jam",
+      "Butter",
+      "Tea",
+      "Milk",
+      "Banana"
+    ],
+    "LUNCH (11:45 AM - 2:30 PM)": [
+      "Roti",
+      "Rice",
+      "Egg Bhurji",
+      "Mixed Vegetable Kurma",
+      "Tomato Dal Tadka",
+      "Chips",
+      "Curd",
+      "Salad",
+      "Rasam",
+      "Drink: Buttermilk"
+    ],
+    "SNACKS (4:00 PM - 6:00 PM)": [
+      "Veg Noodles",
+      "Bread",
+      "Jam",
+      "Butter",
+      "Tea",
+      "Milk"
+    ],
+    "DINNER (7:00 PM - 9:00 PM)": [
+      "Rice",
+      "Roti",
+      "Raw Banana Stir Fry",
+      "Radish Chutney",
+      "Spicy Dal Tadka",
+      "Rasam",
+      "Chips",
+      "Curd",
+      "Salad",
+      "Sweet: Vermicelli Payasam"
+    ]
+  },
+  {
+    "DAY": "FRIDAY",
+    "BREAKFAST (7:00 AM - 9:45 AM)": [
+      "Idli",
+      "Masala Idli",
+      "Medu Vada",
+      "Groundnut Chutney",
+      "Tomato Chutney",
+      "Sambar",
+      "Bread (Normal/Brown)",
+      "Jam",
+      "Butter",
+      "Coffee",
+      "Milk"
+    ],
+    "LUNCH (11:45 AM - 2:30 PM)": [
+      "Rice",
+      "Tomato Rice",
+      "Roti",
+      "Beans and Carrot Thoran",
+      "Sambar",
+      "Salad",
+      "Curd",
+      "Chips",
+      "Chana Masala",
+      "Fruit: Seasonal Fruits"
+    ],
+    "SNACKS (4:00 PM - 6:00 PM)": [
+      "Kozhukkatta",
+      "Bread",
+      "Jam",
+      "Butter",
+      "Tea",
+      "Milk"
+    ],
+    "DINNER (7:00 PM - 9:00 PM)": [
+      "White Rice",
+      "Tawa Pulao",
+      "Roti",
+      "Chicken Masala",
+      "Paneer Masala",
+      "Curd",
+      "Vegetable Raita",
+      "Salad",
+      "Drink: Lychee Drink"
+    ]
+  },
+  {
+    "DAY": "SATURDAY",
+    "BREAKFAST (7:00 AM - 9:45 AM)": [
+      "Normal Upma/Vermicelli Upma",
+      "Sprouts",
+      "Groundnut Chutney",
+      "Mango Pickle",
+      "Bread (Normal/Brown)",
+      "Jam",
+      "Butter",
+      "Coffee",
+      "Milk",
+      "Banana"
+    ],
+    "LUNCH (11:45 AM - 2:30 PM)": [
+      "Rice",
+      "Roti",
+      "Kerala Rice",
+      "Ivy Gourd Fry",
+      "Onam Koottukari",
+      "Parippu Dal",
+      "Beetroot Pachadi",
+      "Bitter Gourd Kondattam",
+      "Papad",
+      "Curd",
+      "Salad",
+      "Drink: Buttermilk"
+    ],
+    "SNACKS (4:00 PM - 6:00 PM)": [
+      "Onion Vada",
+      "Bread",
+      "Jam",
+      "Butter",
+      "Tea",
+      "Milk"
+    ],
+    "DINNER (7:00 PM - 9:00 PM)": [
+      "Roti",
+      "Rice",
+      "Rasam",
+      "Potato Roast",
+      "Horse Gram Chutney",
+      "Onion Dal Tadka",
+      "Curd",
+      "Salad",
+      "Fryums",
+      "Drink: Lemon Sharbat"
+    ]
+  },
+  {
+    "DAY": "SUNDAY",
+    "BREAKFAST (7:00 AM - 9:45 AM)": [
+      "Puri Masala",
+      "Pongal",
+      "Groundnut Chutney",
+      "Banana",
+      "Boiled Egg",
+      "Sprouts",
+      "Bread (Normal/Brown)",
+      "Jam",
+      "Tea",
+      "Milk"
+    ],
+    "LUNCH (11:45 AM - 2:30 PM)": [
+      "Rice",
+      "Roti",
+      "Aloo Bhindi Dry",
+      "Tomato Dal Tadka",
+      "Curd",
+      "Salad",
+      "Coriander Tomato Chutney",
+      "Chips",
+      "Drink: Sweet Lassi"
+    ],
+    "SNACKS (4:00 PM - 6:00 PM)": [
+      "Mirchi Bajji/Cream Bun",
+      "Bread",
+      "Jam",
+      "Butter",
+      "Tea",
+      "Milk"
+    ],
+    "DINNER (7:00 PM - 9:00 PM)": [
+      "Chicken Biryani",
+      "Paneer Biryani",
+      "Veg Gravy",
+      "Chicken Gravy",
+      "Boondi Raita",
+      "Onion Chilli Raita",
+      "Papad",
+      "Salad",
+      "Drink: Rooh Afza"
+    ]
+  }
+]

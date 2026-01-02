@@ -1,0 +1,25 @@
+JavaScript
+TypeScript
+React
+Node.js
+Python
+Django
+Machine Learning
+Data Structures
+Algorithms
+CSS
+HTML
+SQL
+NoSQL
+Go
+Rust
+C++
+Java
+Kotlin
+Swift
+Cloud
+DevOps
+Docker
+Kubernetes
+UI/UX
+Design
