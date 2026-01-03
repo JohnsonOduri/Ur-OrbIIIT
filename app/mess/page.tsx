@@ -1,4 +1,4 @@
-1"use client";
+"use client";
 
 import { MessPage } from "@/components/MessPage";
 import { useAuthContext } from "@/context/AuthContext";
