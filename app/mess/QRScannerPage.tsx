@@ -98,9 +98,14 @@ export function QRScannerPage({ userEmail }: QRScannerPageProps) {
     try {
       await stopScanner();
 
-      const payload = JSON.parse(decodedText);
+      let payload;
+      try {
+        payload = JSON.parse(decodedText);
+      } catch {
+        return redirectResult("invalid", "Invalid QR Code", "This QR code is not recognized");
+      }
 
-      if (payload.type !== "mess-event-attendance") {
+      if (!payload || payload.type !== "mess-event-attendance") {
         return redirectResult("invalid", "Invalid QR Code", "Not a mess attendance QR");
       }
 
@@ -109,8 +114,12 @@ export function QRScannerPage({ userEmail }: QRScannerPageProps) {
         return redirectResult("error", "Event Not Found", "This event does not exist");
       }
 
+      if (!payload.eventId || !payload.qrCode) {
+        return redirectResult("invalid", "Invalid QR Code", "QR code is incomplete");
+      }
+
       if (event.qrCode !== payload.qrCode) {
-        return redirectResult("invalid", "Invalid QR Code", "QR mismatch");
+        return redirectResult("invalid", "Invalid QR Code", "QR code verification failed");
       }
 
       const now = new Date();
@@ -171,7 +180,7 @@ export function QRScannerPage({ userEmail }: QRScannerPageProps) {
       );
     } catch (err) {
       console.error(err);
-      redirectResult("error", "Invalid QR Code", "Failed to process QR");
+      return redirectResult("invalid", "Invalid QR Code", "Failed to process QR");
     } finally {
       setIsProcessing(false);
       processingRef.current = false;
