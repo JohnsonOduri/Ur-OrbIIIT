@@ -47,5 +47,5 @@ next-env.d.ts
 server/leaveform-generator/credentials.json
 
 #firebase rules
-firebase.rules
+firestore.rules
 

@@ -51,7 +51,7 @@ export function MenuPage({ onNavigate }: MenuPageProps) {
         <Button 
           variant="ghost" 
           size="icon" 
-          onClick={() => onNavigate('dashboard')}
+          onClick={() => onNavigate('/')}
           className="h-8 w-8"
         >
           <ArrowLeft className="h-4 w-4" />

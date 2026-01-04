@@ -66,7 +66,8 @@ export function StudentLeaveStatus({ userEmail, userUid, onNavigate }: StudentLe
       const res = await fetch('/api/leave-form/pdf', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ requestId: request.id })
+        // Send the full request so the API can render without needing Firestore read permissions
+        body: JSON.stringify({ requestId: request.id, request })
       });
       if (!res.ok) {
         const contentType = res.headers.get('content-type') || '';
