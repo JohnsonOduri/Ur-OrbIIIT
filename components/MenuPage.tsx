@@ -7,6 +7,7 @@ import {
   Utensils, 
   ChefHat, 
   Users, 
+
   MapPin, 
   BookOpen, 
   UserPlus,
@@ -40,6 +41,15 @@ export function MenuPage({ onNavigate }: MenuPageProps) {
       color: 'bg-green-100 dark:bg-green-950/20',
       iconColor: 'text-green-600 dark:text-green-400'
     },
+    {
+      id: 'askme',
+      title: 'AskMe',
+      description: 'Your campus AI assistant',
+      icon: MessageCircle,
+      color: 'bg-cyan-100 dark:bg-cyan-950/20',
+      iconColor: 'text-cyan-600 dark:text-cyan-400',
+      badge: 'AI'
+    }
     
     
   ];
