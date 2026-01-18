@@ -249,7 +249,7 @@ export async function deleteUserTasksBefore(uid: string, beforeDateISO: string) 
   return removed;
 }
 
-// --- New helpers for per-user courses and FCM token ---
+// --- New helpers for per-user courses ---
 
 const userCoursesCollection = collection(db, 'user_courses');
 const userMetaCollection = collection(db, 'user_meta');
@@ -399,24 +399,6 @@ export async function deleteUserCourse(uid: string, code: string) {
   return snap.size;
 }
 
-/**
- * Save a user's FCM push token in a simple doc.
- */
-export async function setUserFcmToken(uid: string, token: string) {
-  if (!uid) throw new Error('uid required');
-  const q = query(userMetaCollection, where('owner', '==', uid));
-  const snap = await getDocs(q);
-  if (!snap.empty) {
-    const d = snap.docs[0];
-    await setDoc(doc(db, 'user_meta', d.id), { fcmToken: token }, { merge: true });
-    const updated = await getDoc(doc(db, 'user_meta', d.id));
-    return { id: updated.id, ...(updated.data() as Record<string, any>) };
-  } else {
-    const ref = await addDoc(userMetaCollection, { owner: uid, fcmToken: token });
-    const created = await getDoc(doc(db, 'user_meta', ref.id));
-    return { id: created.id, ...(created.data() as Record<string, any>) };
-  }
-}
 
 // --- New helpers for mess ratings ---
 const messRatingsCollection = collection(db, 'mess_ratings');

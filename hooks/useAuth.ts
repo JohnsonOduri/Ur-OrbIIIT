@@ -10,7 +10,7 @@ import {
   User,
 } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { getUserByEmail, createOrUpdateUser } from "@/lib/firestore";
+import { getUserByUid, createOrUpdateUser } from "@/lib/firestore";
 
 const MAX_SESSION = 7 * 24 * 60 * 60 * 1000; // 7 days
 
@@ -20,13 +20,21 @@ export function useAuth() {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
+  const logout = useCallback(() => {
+    localStorage.removeItem("lastLogin");
+    signOut(auth).finally(() => setUser(null));
+  }, []);
+
   // Auth state listener
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       if (firebaseUser) {
         const lastLogin = Number(localStorage.getItem("lastLogin"));
         const now = Date.now();
-        if (!lastLogin || now - lastLogin > MAX_SESSION) {
+        if (!lastLogin) {
+          localStorage.setItem("lastLogin", now.toString());
+          setUser(firebaseUser);
+        } else if (now - lastLogin > MAX_SESSION) {
           logout();
         } else {
           setUser(firebaseUser);
@@ -37,8 +45,7 @@ export function useAuth() {
       setLoading(false);
     });
     return () => unsubscribe();
-    // eslint-disable-next-line
-  }, []);
+  }, [logout]);
 
   const signInWithGoogleOneTap = useCallback(async (idToken: string) => {
     setError(null);
@@ -59,10 +66,9 @@ export function useAuth() {
       localStorage.setItem("lastLogin", Date.now().toString());
       setUser(loggedInUser);
 
-      // Check Firestore for existing user document by email
       const email = loggedInUser.email || "";
       try {
-        const existing = await getUserByEmail(email);
+        const existing = await getUserByUid(loggedInUser.uid);
         if (!existing) {
           // Redirect to profile setup page to collect profile info
           setLoading(false);
@@ -89,11 +95,6 @@ export function useAuth() {
       setLoading(false);
     }
   }, [router]);
-
-  const logout = useCallback(() => {
-    localStorage.removeItem("lastLogin");
-    signOut(auth).then(() => setUser(null));
-  }, []);
 
   return { user, loading, error, signInWithGoogleOneTap, logout };
 }

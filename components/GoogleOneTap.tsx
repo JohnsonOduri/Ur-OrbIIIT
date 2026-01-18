@@ -14,13 +14,10 @@ declare global {
   }
 }
 
+type GoogleMomentType = "display" | "skipped" | "dismissed";
+
 type GooglePromptNotification = {
-  isNotDisplayed: () => boolean;
-  getNotDisplayedReason?: () => string;
-  isSkippedMoment: () => boolean;
-  getSkippedReason?: () => string;
-  isDismissedMoment: () => boolean;
-  getDismissedReason?: () => string;
+  getMomentType?: () => GoogleMomentType | undefined;
 };
 
 import { useEffect, useRef, useCallback } from "react";
@@ -52,8 +49,10 @@ export default function GoogleOneTap({ clientId }: GoogleOneTapProps) {
     if (!window.google?.accounts?.id) return;
     // only prompt when the tab is visible to avoid cross-tab/visibility conflicts
     if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return;
-    // If a prompt has already been shown or is in progress, skip
-    if (prompted.current || promptInProgress.current) return;
+    // If a prompt is already in progress, skip
+    if (promptInProgress.current) return;
+    // Allow retry even if prompted before
+    if (prompted.current && promptInProgress.current) return;
 
     const doPrompt = () => {
       try {
@@ -61,38 +60,52 @@ export default function GoogleOneTap({ clientId }: GoogleOneTapProps) {
         window.google!.accounts.id.prompt((notification?: GooglePromptNotification) => {
           promptInProgress.current = false;
           if (!notification) return;
-          if (notification.isNotDisplayed()) {
-            console.log("[One Tap] Not displayed:", notification.getNotDisplayedReason?.());
-            // allow a future retry
-            prompted.current = false;
-          } else if (notification.isSkippedMoment()) {
-            console.log("[One Tap] Skipped:", notification.getSkippedReason?.());
-            prompted.current = false;
-          } else if (notification.isDismissedMoment()) {
-            console.log("[One Tap] Dismissed:", notification.getDismissedReason?.());
-            prompted.current = false;
-          } else {
-            console.log("[One Tap] Prompt shown");
-            prompted.current = true;
+
+          const momentType = notification.getMomentType?.();
+          switch (momentType) {
+            case "display":
+              console.log("[One Tap] Prompt shown");
+              prompted.current = true;
+              break;
+            case "skipped":
+              console.log("[One Tap] Prompt skipped");
+              prompted.current = false;
+              break;
+            case "dismissed":
+              console.log("[One Tap] Prompt dismissed");
+              prompted.current = false;
+              break;
+            default:
+              console.log("[One Tap] Moment status unavailable");
+              prompted.current = false;
+              break;
           }
         });
       } catch (err: unknown) {
         promptInProgress.current = false;
         const msg = (err && typeof err === 'object' && 'message' in err) ? (err as any).message : String(err);
-        console.warn('[One Tap] prompt error', err);
-        // If GSI/FedCM reports multiple outstanding navigator.credentials.get, schedule a retry
-        if (typeof msg === 'string' && msg.includes('Only one navigator.credentials.get request may be outstanding')) {
-          // reset flagged state and retry after short backoff
+        const errString = String(err);
+        console.warn('[One Tap] prompt error', msg || errString);
+        // Reset and retry on certain errors
+        const shouldRetry = 
+          (typeof msg === 'string' && msg.includes('Only one navigator.credentials.get request may be outstanding')) ||
+          (typeof errString === 'string' && (errString.includes('AbortError') || errString.includes('IdentityCredentialError')));
+        
+        if (shouldRetry) {
           prompted.current = false;
           if (retryTimer.current) window.clearTimeout(retryTimer.current);
           retryTimer.current = window.setTimeout(() => {
             retryTimer.current = null;
+            prompted.current = false;
             try {
               doPrompt();
             } catch (e) {
               console.warn('[One Tap] retry failed', e);
             }
-          }, 1500);
+          }, 2000);
+        } else {
+          // For other errors, allow prompt to be retried
+          prompted.current = false;
         }
       }
     };
@@ -109,7 +122,7 @@ export default function GoogleOneTap({ clientId }: GoogleOneTapProps) {
       window.google.accounts.id.initialize({
         client_id: clientId,
         callback: handleCredential,
-        use_fedcm_for_prompt: true, // leave true if testing FedCM
+        use_fedcm_for_prompt: false,
         ux_mode: "popup",
         context: "signin",
         auto_select: false,

@@ -35,8 +35,10 @@ export default function LoginPage({ isDarkMode, toggleDarkMode }: LoginPageProps
       {/* Branding */}
         <div className="text-center mb-10">
     <h1 className="text-4xl font-bold mb-2">Welcome to ORBIIIT</h1>
+    <br />
     <p className="text-sm text-muted-foreground mt-1">
       Only valid <span className="font-mono">@iiitkottayam.ac.in</span> emails are accepted.
+      Tap on Continue with Google to Login, wait for it to be initiated
     </p>
   </div>
 
