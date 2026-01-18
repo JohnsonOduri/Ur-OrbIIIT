@@ -213,16 +213,16 @@ export function LeaveFormDashboard({ userEmail, userUid, userRole, onNavigate }:
       <Button 
         onClick={() => onNavigate('warden-approvals')}
         size="lg"
-        className="w-full gap-2 h-auto py-4 bg-indigo-600 hover:bg-indigo-700"
+        className="w-full gap-2 h-auto py-4 bg-white hover:bg-gray-100 text-gray-900"
       >
         <Shield className="h-5 w-5" />
         <div className="text-left">
           <div>Review Final Approvals</div>
           <div className="text-xs opacity-80 font-normal">
-            {stats.wardenPending > 0 
-              ? `${stats.wardenPending} request${stats.wardenPending !== 1 ? 's' : ''} awaiting final approval`
-              : 'All caught up!'
-            }
+        {stats.wardenPending > 0 
+          ? `${stats.wardenPending} request${stats.wardenPending !== 1 ? 's' : ''} awaiting final approval`
+          : 'All caught up!'
+        }
           </div>
         </div>
       </Button>
