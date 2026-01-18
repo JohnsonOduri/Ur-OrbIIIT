@@ -1,48 +1,48 @@
-"use client";
-
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import Link from "next/link";
-import { Home, Calendar, Target, User, Bell, Menu } from "lucide-react";
-import SplashScreen from "@/components/SplashScreen";
-import { AuthProvider } from "@/context/AuthContext";
-import { DarkModeProvider } from "@/context/DarkModeContext";
+import ClientLayout from "./client-layout";
+
+export const metadata: Metadata = {
+  title: "OrbIIIT",
+  description: "OrbIIIT - IIIT Campus Management Application",
+  manifest: "/manifest.json",
+  keywords: ["IIIT", "campus", "management", "app"],
+  authors: [{ name: "OrbIIIT" }],
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "OrbIIIT",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: "cover",
+  themeColor: "#000000",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="mobile-web-app-title" content="OrbIIIT" />
+      </head>
       <body className="min-h-screen bg-background">
-        <DarkModeProvider>
-          <AuthProvider>
-            <SplashScreen />
-            <header className="sticky top-0 z-50 bg-card border-b border-border px-4 py-3">
-              <div className="flex items-center justify-between max-w-md mx-auto">
-                <div className="flex items-center space-x-3">
-                  <h1 className="text-lg font-semibold">OrbIIIT</h1>
-                </div>
-                <div className="flex items-center space-x-2">
-                  
-                  <Link href="/menu">
-                    <Menu className="h-5 w-5" />
-                  </Link>
-                </div>
-              </div>
-            </header>
-            <main className="pb-20 max-w-md mx-auto">{children}</main>
-            <nav className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-card border-t border-border">
-              <div className="flex items-center justify-around py-2">
-                <Link href="/" className="flex flex-col items-center py-2 px-3">
-                  <Home className="h-4 w-4 mb-1" />
-                  <span className="text-xs">HOME</span>
-                </Link>
-               
-                <Link href="/profile" className="flex flex-col items-center py-2 px-3">
-                  <User className="h-4 w-4 mb-1" />
-                  <span className="text-xs">YOU</span>
-                </Link>
-              </div>
-            </nav>
-          </AuthProvider>
-        </DarkModeProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

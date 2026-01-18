@@ -1,0 +1,25 @@
+<!-- Main App Icon (for 192x192 and 512x512 generation) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <!-- Background circle -->
+  <circle cx="96" cy="96" r="96" fill="#000000"/>
+  
+  <!-- Outer ring -->
+  <circle cx="96" cy="96" r="90" fill="none" stroke="#ffffff" stroke-width="3"/>
+  
+  <!-- Inner design - Orbit pattern -->
+  <circle cx="96" cy="96" r="60" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.5"/>
+  <circle cx="96" cy="96" r="40" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.7"/>
+  
+  <!-- Center dot -->
+  <circle cx="96" cy="96" r="8" fill="#ffffff"/>
+  
+  <!-- Orbital elements -->
+  <circle cx="140" cy="96" r="5" fill="#ffffff"/>
+  <circle cx="96" cy="140" r="5" fill="#ffffff"/>
+  <circle cx="52" cy="96" r="5" fill="#ffffff"/>
+  <circle cx="96" cy="52" r="5" fill="#ffffff"/>
+  
+  <!-- Text label "O" for OrbIIIT -->
+  <text x="96" y="165" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle" font-family="Arial, sans-serif">O</text>
+</svg>
